@@ -4,9 +4,9 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json  
 
 {
-  "email": "testuser@example.com",
+  "email": "testuser0@example.com",
   "password": "testpassword",
-  "fullName": "Test User"
+  "fullName": "Test User 0"
 }
 
 
@@ -16,6 +16,32 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "testuser@example.com",
+  "email": "testuser0@example.com",
   "password": "testpassword"
 }
+
+
+### Create Product
+POST http://localhost:3000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTczMzExNzAsImV4cCI6MTc1NzMzNDc3MH0.PQtKAWsqlKS6GcqQUKK11-WGwgrReCf9wR9iI-L2FDQ
+
+
+{
+  "title": "New Product",
+  "description": "description",
+  "price": 100.00
+}
+
+
+
+###
+- GET  /api/products/me (auth)
+- PUT  /api/products/:id (auth owner)
+- DELETE /api/products/:id (auth owner)
+
+
+### Responses
+- GET  /api/products/public?q=&page=&per_page=
+- GET  /api/products/:id
+
