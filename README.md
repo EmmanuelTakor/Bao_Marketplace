@@ -12,16 +12,33 @@ Swagger – API documentation
 
 
 #Features
+   Secure User Registration & Login with bcrypt & JWT
+
+   Product CRUD: users can create, update, delete, and view their own products
+
+   Public Product Listing with search & pagination
+
+   PostgreSQL database with Sequelize ORM
+
+   Centralized error handling & input validation (Joi)
+
+   Swagger API docs available at /docs
+
+   Docker support for easy deployment
+
+   Basic tests included
 
 
 
--Secure user registration and login with JWT
--CRUD operations for products (users can manage only their own products)
--Public listing of products with search and pagination
--Image upload support using multer (via URLs in images array)
--Input validation and centralized error handling
--Basic unit/integration tests (Jest + Supertest)
--Swagger documentation at /docs 
+#Tech Stack
+
+
+Backend: Node.js, Express.js
+Database: PostgreSQL + Sequelize
+Auth: JWT + bcrypt
+Validation: Joi
+Docs: Swagger (swagger-jsdoc + swagger-ui-express)
+Deployment: Docker, Docker Compose
 
 #Installation
 
@@ -138,100 +155,3 @@ Testing
 4. It wasn't explicitly demanded but I chose to containerize both the database and backend. Firstly, even boyond the fact that this is an industry best practice in such a scenario where code or an application has to be explored by another person on another machine, it ensures Consistency and Environment Isolation , thereby eliminating a very popular problem we developpers often face: the "It Works on My Machine" Syndrome . A container packages our application and all its dependencies (libraries, runtimes, environment variables) into a single, isolated unit. This guarantees that the application will run identically on a colleague's machine as it does on ours, eliminating the common frustrations of mismatched dependencies or OS-specific bugs.
 
 5. Lastly, it wasn't demanded but I equally added the Swagger Docs utility for better documentation and easy API exploration.
-
-
-
-
-
-
-
-
-
-
-#Bao Marketplace Backend API
-
-An online marketplace backend built with Express.js, PostgreSQL, Sequelize ORM, and JWT authentication.
-It supports user registration/login, product management, public product listing with search & pagination, and comes with Swagger documentation and Docker support.
-
-🚀 Features
-Secure User Registration & Login with bcrypt & JWT
-
-Product CRUD: users can create, update, delete, and view their own products
-
-Public Product Listing with search & pagination
-
-PostgreSQL database with Sequelize ORM
-
-Centralized error handling & input validation (Joi)
-
-Swagger API docs available at /docs
-
-Docker support for easy deployment
-
-Basic tests included
-
-
-
-
-📦 Tech Stack
-
-
-Backend: Node.js, Express.js
-Database: PostgreSQL + Sequelize
-Auth: JWT + bcrypt
-Validation: Joi
-Docs: Swagger (swagger-jsdoc + swagger-ui-express)
-Deployment: Docker, Docker Compose
-
-
-⚙️ Setup Instructions
-
-1. Clone repository
-git clone https://github.com/EmmanuelTakor/Bao_Marketplace.git
-cd Bao-marketplace
-2. Install dependencies
-npm install
-3. Configure environment
-Create a .env file in the project root:
-PORT=5000
-DATABASE_URL=postgres://postgres:password@localhost:5432/bao_marketplace
-JWT_SECRET=BaoSecretKey
-*If using local PostgreSQL, ensure you create the database first:
-createdb bao_marketplace
-4. Run migrations
-npx sequelize-cli db:migrate
-5. Start the server
-npm run dev
-Server will run at:
-👉 http://localhost:5000
-Swagger Docs available at:
-👉 http://localhost:5000/docs
-🐳 Docker Setup
-Build & run with Docker Compose
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## API Endpoints
-- POST /api/auth/register {email,password,fullName}
-- POST /api/auth/login {email,password}
-- GET  /api/products/public?q=&page=&per_page=
-- GET  /api/products/:id
-- POST /api/products (auth) {title,description,price,images}
-- GET  /api/products/me (auth)
-- PUT  /api/products/:id (auth owner)
-- DELETE /api/products/:id (auth owner)
-
-## Tests
-npm test
