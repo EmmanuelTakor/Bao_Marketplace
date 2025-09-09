@@ -118,13 +118,7 @@ GET	                   /api/products/me	                           Yes	         
 PUT	                   /api/products/:id	                        Yes	                     Update product (owner only)
 DELETE	               /api/products/:id	                           Yes	                     Delete product (owner only)
 
-Create Product Example:
-   {
-   "title": "Sample Product",
-   "description": "This is a test product",
-   "price": 25.5,
-   "images": ["https://example.com/image1.jpg"]
-   }
+
 
 Pagination Example:
    GET /api/products/public?page=2&per_page=10&q=test
@@ -144,7 +138,7 @@ Testing
       I chose this approach, 
       firstly, for Enhanced Security.Using an ORM is one of the most effective ways to prevent a common and dangerous vulnerability: SQL injection attacks. When we manually build queries by concatenating strings, we risk a malicious user inputting code that manipulates our database.Sequelize automatically handles this by using prepared statements and parameterized queries. It sanitizes all input, ensuring that data is treated as values and not executable code. This is a crucial security benefit that we get out of the box without needing to implement any custom security logic.
       
-      Secondly, I choe this approach inorder to enhance Abstraction and Maintainability.With ORMs like Sequelize, instead of writing raw SQL in JavaScript code, we interact with the database using JavaScript objects and methods. This leads to cleaner, more readable code that's easier to maintain. Moreso, Sequelize equally offers a robust Schema and Migration Management. In any non-trivial application, database schema will evolves. Sequelize provides a powerful command-line interface (CLI) to manage database migrations. 
+      Secondly, I chose this approach inorder to enhance Abstraction and Maintainability.With ORMs like Sequelize, instead of writing raw SQL in JavaScript code, we interact with the database using JavaScript objects and methods. This leads to cleaner, more readable code that's easier to maintain. Moreso, Sequelize equally offers a robust Schema and Migration Management. In any non-trivial application, database schema will evolves. Sequelize provides a powerful command-line interface (CLI) to manage database migrations. 
 
 2. JWT + bcrypt instead of just JWT as stipulated by your requirements.
       I chose this approach because while JWT offers great security measure with tokens, if i were to use just it in an application where users have to register and log in (which implies that their passwords have to be stored in the database), I would be storing the passwords of users directly in the database - which is a serious security flaw that can be exploitent by hackers and malicious actors. All such a person needs to access the space of any user is to have access somehow into the database. With bycrypt, hashing algoriths are used to encrypt the passwords of using before database storage thereby offeering an aditional critical layer of security. This way even if the database is hacked or accessed by an ill-intentioned person, they wont still know the user's password.
