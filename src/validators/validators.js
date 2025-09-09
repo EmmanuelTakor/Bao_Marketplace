@@ -12,19 +12,27 @@ const loginSchema = Joi.object({
 });
 
 const productCreateSchema = Joi.object({
-  title: Joi.string().max(255).required(),
-  description: Joi.string().allow('', null),
-  price: Joi.number().min(0).required(),
-  images: Joi.array().items(Joi.string().uri()).optional()
+  title: Joi.string().min(3).max(255).required(),
+  description: Joi.string().min(5).required(),
+  price: Joi.number().positive().required(),
+
+  images: Joi.any().optional(),
+
+  // forbid ownerId in user input
+  ownerId: Joi.forbidden()
 });
 
 const productUpdateSchema = Joi.object({
-  title: Joi.string().max(255).optional(),
-  description: Joi.string().allow('', null),
-  price: Joi.number().min(0).optional(),
-  images: Joi.array().items(Joi.string().uri()).optional()
-}).min(1);
+  title: Joi.string().min(3).max(255),
+  description: Joi.string().min(5),
+  price: Joi.number().positive(),
+  images: Joi.any().optional(),
+  ownerId: Joi.forbidden()
+});
+
 
 module.exports = {
   registerSchema, loginSchema, productCreateSchema, productUpdateSchema
 };
+
+

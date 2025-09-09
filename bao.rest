@@ -24,13 +24,14 @@ Content-Type: application/json
 ### Create Product
 POST http://localhost:3000/api/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTczMzQ5NDEsImV4cCI6MTc1NzMzODU0MX0.0oD9L75zYumf6FjRIbN22J3gZBrqBO1l1L6cqKeCvc4
+Authorization: Bearer eeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTc0MTI3MTgsImV4cCI6MTc1NzQxNjMxOH0.YG_2iZtny9ISmFkunMC6WYbKrFpdgoR4W19ellkx2Ks
 
 
 {
-  "title": "New Produc 2",
-  "description": "description 2",
-  "price": 105.00
+  "title": "New Produc 3",
+  "description": "description 3",
+  "price": 1056.00,
+  "images": ["/uploads/image3.jpg", "/uploads/image3.jpg"]
 }
 
 
@@ -42,19 +43,20 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiO
 
 
 ### Get Product by ID
-GET http://localhost:3000/api/products/1
+GET http://localhost:3000/api/products/3
 Content-Type: application/json
-Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTczMzExNzAsImV4cCI6MTc1NzMzNDc3MH0.PQtKAWsqlKS6GcqQUKK11-WGwgrReCf9wR9iI-L2FDQ
+Authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTc0MTI3MTgsImV4cCI6MTc1NzQxNjMxOH0.YG_2iZtny9ISmFkunMC6WYbKrFpdgoR4W19ellkx2Ks
 
 ### Get products by logged owner
 GET http://localhost:3000/api/products/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTczMzQ5NDEsImV4cCI6MTc1NzMzODU0MX0.0oD9L75zYumf6FjRIbN22J3gZBrqBO1l1L6cqKeCvc4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTc0MTI3MTgsImV4cCI6MTc1NzQxNjMxOH0.YG_2iZtny9ISmFkunMC6WYbKrFpdgoR4W19ellkx2Ks
 
 ### Product Management
 PUT  http://localhost:3000/api/products/2
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTczMzQ5NDEsImV4cCI6MTc1NzMzODU0MX0.0oD9L75zYumf6FjRIbN22J3gZBrqBO1l1L6cqKeCvc4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTc0MTI3MTgsImV4cCI6MTc1NzQxNjMxOH0.YG_2iZtny9ISmFkunMC6WYbKrFpdgoR4W19ellkx2Ks
+
 
 {
   "title": "Updated Product Title",
@@ -66,7 +68,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiO
 ###
 DELETE http://localhost:3000/api/products/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTczMzQ5NDEsImV4cCI6MTc1NzMzODU0MX0.0oD9L75zYumf6FjRIbN22J3gZBrqBO1l1L6cqKeCvc4 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0dXNlcjBAZXhhbXBsZS5jb20iLCJpYXQiOjE3NTc0MTI3MTgsImV4cCI6MTc1NzQxNjMxOH0.YG_2iZtny9ISmFkunMC6WYbKrFpdgoR4W19ellkx2Ks
 
 
 ### Responses
