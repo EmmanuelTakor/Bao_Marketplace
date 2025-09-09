@@ -5,9 +5,15 @@ async function createProduct(req, res, next) {
   try {
     const { error, value } = productCreateSchema.validate(req.body);
     if (error) {
-      return res.status(400).json({ error, message: error.details[0].message });}
+      return res.status(400).json({ message: error.details[0].message });}
 
-    const created = await Product.create({ ...value, ownerId: req.user.id });
+    // Collect uploaded file paths
+    let imagePaths = [];
+    if (req.files && req.files.length > 0) {
+      imagePaths = req.files.map(f => `/uploads/${f.filename}`);
+    }
+
+    const created = await Product.create({ ...value,images: imagePaths, ownerId: req.user.id });
     res.status(201).json(created);
   } catch (err) { next(err); }
 }
@@ -36,7 +42,13 @@ async function updateProduct(req, res, next) {
     if (!p) return res.status(404).json({ message: 'Product not found' });
     if (p.ownerId !== req.user.id) return res.status(403).json({ message: 'Not authorized' });
 
-    await p.update(value);
+     // Add uploaded images
+    let imagePaths = p.images || [];
+    if (req.files && req.files.length > 0) {
+      imagePaths = imagePaths.concat(req.files.map(f => `/uploads/${f.filename}`));
+    }
+
+    await p.update({ ...value, images: imagePaths });
     res.json(p);
   } catch (err) { next(err); }
 }
