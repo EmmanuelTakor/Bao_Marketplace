@@ -64,9 +64,9 @@ Swagger – API documentation
 
 7. Access the Application
 The backend API will be accessible at:
-   http://localhost:8000
+   http://localhost:3000
 Swagger documentation for API endpoints will be available at:
-   http://localhost:8000/docs
+   http://localhost:3000/docs
 
 8. Interact with the API
 
