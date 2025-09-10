@@ -59,11 +59,17 @@ Deployment: Docker, Docker Compose
 4. Set up Environment Variables
       Copy the example environment file by using the command below:
       cp .env.example .env
-      Open .env and ensure the following are set with the neccesary values:
-         PORT=
-         DATABASE_URL=
-         JWT_SECRET=
-         JWT_EXPIRES_IN=
+      Open .env and ensure the following are set with the neccesary values.Remplace the example values with actual values:
+         # Server
+            PORT=3000
+
+         # Database
+            DATABASE_URL=postgres://user:password@db:5432/bao_db
+
+         # JWT authentication
+            JWT_SECRET=your-secret-key
+            JWT_EXPIRES_IN=1h
+         
 
 5. Build and Start Docker Containers
       Run the following command to build the containers and start the app:
